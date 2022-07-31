@@ -91,11 +91,7 @@ const win = (arr) => {
       const [winner] = column;
       return {winner, type: 'column', index: y};
     }
-    // console.log('row', y, row);
-    // console.log('column', y, column);
   }
-  console.log('diagonal', diagonal);
-  console.log('antiDiagonal', antiDiagonal);
   if (diagonal.size === 1) {
     const [winner] = diagonal;
     return {winner, type: 'diagonal'};
