@@ -70,40 +70,49 @@ const win = (arr) => {
     let row = new Set();
     let column = new Set();
     for (let x = min; x < max; x++) {
+      // check is empty cell to store to continue a game further
       if (!freeCell && arr[x][y] == empty) {
         freeCell = true;
       }
+      // column X and row Y
       column.add(arr[x][y]);
       row.add(arr[y][x]);
+      // diagonal
       if (x == y) {
         diagonal.add(arr[x][y])
       }
-      // console.log(x,y,match)
+      // antiDiagonal
       if ((x + y) == match) {
         antiDiagonal.add(arr[y][x])
       }
     }
-    if (row.size === 1) {
-      const [winner] = row;
-      return {winner, type: 'row', index: y};
-    }
+    // Check column X
     if (column.size === 1) {
-      const [winner] = column;
-      return {winner, type: 'column', index: y};
+      const [ winner ] = column;
+      return { winner, type: 'column', index: y };
+    }
+    // check row Y
+    if (row.size === 1) {
+      const [ winner ] = row;
+      return { winner, type: 'row', index: y };
     }
   }
+  // check diagonal
   if (diagonal.size === 1) {
-    const [winner] = diagonal;
+    const [ winner ] = diagonal;
     return {winner, type: 'diagonal'};
   }
+  // check anti-diagonal
   if (antiDiagonal.size === 1) {
-    const [winner] = antiDiagonal;
-    return {winner, type: 'antiDiagonal'};
+    const [ winner ] = antiDiagonal;
+    return { winner, type: 'antiDiagonal' };
   }
-  if (freeCell) {
-    return false;
+  // check is empty cell or it's a draw
+  if (!freeCell) {
+    return { winner: empty }
   }
-  return {winner: empty}
+  // if no empty cell - continue a game
+  return null;
 }
 
 // 
