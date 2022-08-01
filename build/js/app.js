@@ -215,7 +215,7 @@ const ticTacToe = (gameDivId) => {
     if (result) {
       if (result.winner) {
         $winner.innerText = result ? `Winner '${signEnum[result.winner]}' user` : '';
-        $table.classList.add(`${result.type}Win${result.type === winTypeEnum.diagonal || result.type === winTypeEnum.antiDiagonal ? '' : result.index + 1}`);
+        $table.classList.add('gameOver', `${result.type}Win${result.type === winTypeEnum.diagonal || result.type === winTypeEnum.antiDiagonal ? '' : result.index + 1}`);
       } else {
         $winner.innerText = 'Draw!';
       }

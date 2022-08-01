@@ -93,13 +93,13 @@ table td {
     cursor: pointer;
 }
 
-table td:hover {
+table:not(.gameOver) td:hover {
     cursor: pointer;
     background: rgb(255, 174, 174);
     color: rgb(108, 108, 108);
 }
 
-table td:active {
+table:not(.gameOver) td:active {
     background: rgb(248, 78, 78);
 }
 
