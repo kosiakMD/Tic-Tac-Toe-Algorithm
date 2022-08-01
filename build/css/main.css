@@ -6,19 +6,19 @@
     --1_3: 100%/6;
     --2_3: 100% - 100%/6;
     --gradBlack1: rgba(var(--blackT)) 0%,
-    rgba(var(--blackT)) calc(var(--1_3) - 0.8px),
+    rgba(var(--blackT)) calc(var(--1_3) - 1px),
     rgba(var(--blackO)) 0%,
-    rgba(var(--blackT)) calc(var(--1_3) + 0.8px),
+    rgba(var(--blackT)) calc(var(--1_3) + 1px),
     rgba(var(--blackT)) 100%;
     --gradBlack2: rgba(var(--blackT)) 0%,
-    rgba(var(--blackT)) calc(50% - 0.8px),
+    rgba(var(--blackT)) calc(50% - 1px),
     rgba(var(--blackO)) 50%,
-    rgba(var(--blackT)) calc(50% + 0.8px),
+    rgba(var(--blackT)) calc(50% + 1px),
     rgba(var(--blackT)) 100%;
     --gradBlack3: rgba(var(--blackT)) 0%,
-    rgba(var(--blackT)) calc(var(--2_3) - 0.8px),
+    rgba(var(--blackT)) calc(var(--2_3) - 1px),
     rgba(var(--blackO)) 0%,
-    rgba(var(--blackT)) calc(var(--2_3) + 0.8px),
+    rgba(var(--blackT)) calc(var(--2_3) + 1px),
     rgba(var(--blackT)) 100%;
 
 }
@@ -105,19 +105,19 @@ table td:active {
 
 .rowWin1 {
     background: linear-gradient(
-            to top,
+            to bottom,
             var(--gradBlack1)
     );
 }
 .rowWin2 {
     background: linear-gradient(
-            to top,
+            to bottom,
             var(--gradBlack2)
     );
 }
 .rowWin3 {
     background: linear-gradient(
-            to top,
+            to bottom,
             var(--gradBlack3)
     );
 }
