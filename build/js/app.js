@@ -177,11 +177,9 @@ const ticTacToe = (gameDivId) => {
 
 // run tests
   const test = () => {
-    let result = true;
-
     const boardMocks = [boardState0, boardState1, boardState2, boardState3, boardState4, boardState5];
-
     const resultMocks = [resultMock0, resultMock1, resultMock2, resultMock3, resultMock4, resultMock5];
+    let result = true;
 
     boardMocks.every((board, i) => {
       const testString = JSON.stringify(resultMocks[i]);
@@ -189,12 +187,12 @@ const ticTacToe = (gameDivId) => {
       const resultString = JSON.stringify(testResult);
       const testSuccess = testString === resultString;
       if (testSuccess) {
-        console.log(`Test #${i} passed.`, resultString);
+        console.debug(`Test #${i} passed.`, resultString);
         return true;
       } else {
-        console.log(`Test #${i} failed.`);
-        console.log(`Waited for: ${testString}`);
-        console.log(`Received for: ${resultString}`);
+        console.warn(`Test #${i} failed.`);
+        console.debug(`Waited for: ${testString}`);
+        console.debug(`Received for: ${resultString}`);
         return false;
       }
     });
@@ -238,9 +236,9 @@ const ticTacToe = (gameDivId) => {
     const currentCell = cell || document.getElementById(getCellId(x, y));
     currentCell.innerText = signEnum[currentUser];
     const result = win(boardState);
-    if (result && result.winner) {
-      console.log(boardState);
-      console.log(result);
+    if (result) {
+      console.debug(boardState);
+      console.debug(result);
       setWinner(result);
       gameOver = true;
       return;
